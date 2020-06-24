@@ -24,13 +24,19 @@ export default {
   },
   methods: {
     toggleCheckedIn: function() {
+      console.log(this.booking.checkedIn);
+      const newVal=!this.booking.checkedIn;
+
       const update = {
-        checkedIn: !this.checkedIn
+        checkedIn: newVal
       }
+
+      console.log(update)
       BookingService.updateBooking(update,this.booking._id);
       eventBus.$emit('toggle-booking-checked-in', this.booking);
     },
     deleteBooking: function() {
+      BookingService.deleteBooking(this.booking._id)
       eventBus.$emit('delete-booking', this.booking._id);
     }
   }

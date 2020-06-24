@@ -35,7 +35,7 @@ export default {
       const booking = {
         name: this.name,
         email: this.email,
-        checkedIn: this.checkedIn
+        checkedIn: JSON.parse(this.checkedIn)
       }
       BookingService.postBooking(booking)
       .then(res => eventBus.$emit('booking-added',res))
