@@ -39,8 +39,10 @@ export default {
         ...booking,
         checkedIn: !booking.checkedIn
       };
-      BookingService.updateBooking(updatedBooking);
+
+      BookingService.updateBooking(updatedBooking,booking._id);
       const index = this.bookings.findIndex(booking => booking._id === updatedBooking._id);
+      
       this.bookings.splice(index, 1, updatedBooking);
     });
 
