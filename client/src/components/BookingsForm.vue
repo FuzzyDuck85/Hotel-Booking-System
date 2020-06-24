@@ -9,6 +9,10 @@
       <label for="email">E-Mail:</label>
       <input type="text" id="email" v-model="email" required/>
     </div>
+    <div class="formWrap">
+      <label for="checked_in">Checked In:</label>
+    <input type="checkbox" id="checkedIn" name="checkedIn" v-model="checkedIn">
+    </div>
     <input type="submit" id="save" value="Make Booking"/>
 
 
@@ -54,7 +58,6 @@ h2 {
 
 form {
 
-
 	width: 25%;
 	margin: 0 auto;
 	background: rgba(153, 255, 204, 0.5);
@@ -96,6 +99,8 @@ input {
 	margin-top: 10px;
 	background: green;
   border-style: outset;
+  margin-left: 100px;
+
 
 }
 </style>

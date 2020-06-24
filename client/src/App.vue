@@ -1,9 +1,15 @@
 <template>
   <div id="app">
-    <h1>FAWLTY TOWERS</h1>
+  <div>
+    <h1>
+    <img src="./assets/fawlty.png" alt="FAWLTY TOWERS" contain height="272px" width="640px"/>
+    </h1>
+  </div>
+  <div>
     <bookings-form />
     <bookings-grid :bookings="bookings" />
   </div>
+</div>
 </template>
 
 <script>
@@ -23,18 +29,18 @@ export default {
       bookings: []
     };
   },
-	mounted() {
+  mounted() {
     this.fetchBookings();
 
-      eventBus.$on('booking-added', (booking) => {
-        this.bookings.push(booking)
-      });
+    eventBus.$on('booking-added', (booking) => {
+      this.bookings.push(booking)
+    });
 
-      eventBus.$on('delete-booking', (id) => {
-        let index = this.bookings.findIndex(booking => booking._id === id)
-        this.bookings.splice(index, 1)
-      });
-      eventBus.$on('toggle-booking-checked-in', booking => {
+    eventBus.$on('delete-booking', (id) => {
+      let index = this.bookings.findIndex(booking => booking._id === id)
+      this.bookings.splice(index, 1)
+    });
+    eventBus.$on('toggle-booking-checked-in', booking => {
       const updatedBooking = {
         ...booking,
         checkedIn: !booking.checkedIn
@@ -51,7 +57,7 @@ export default {
   methods: {
     fetchBookings() {
       BookingService.getBookings()
-        .then(bookings => this.bookings = bookings);
+      .then(bookings => this.bookings = bookings);
     }
   }
 }
@@ -72,16 +78,12 @@ body {
   background-attachment: fixed;
 }
 h1  {
-  width: 25%;
+
   display: flex;
   justify-content: center;
-	margin: 0 auto;
-	background: white;
-	padding: 20px;
-	margin-bottom: 40px;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: thick;
-  border-color: black;
+  margin: 0 auto;
+margin-left: 80px;
+  padding: 10px;
+
 }
 </style>
