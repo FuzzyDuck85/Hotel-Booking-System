@@ -6,8 +6,6 @@
 
 <script>
 import Booking from './Booking';
-// import { eventBus } from '../main.js';
-// import BookingService from '../services/BookingService.js'
 
 export default {
 	name: 'bookings-grid',
@@ -23,7 +21,7 @@ export default {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	
+
 }
 
 h2 {

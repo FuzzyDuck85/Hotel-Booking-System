@@ -1,23 +1,33 @@
 <template lang="html">
   <div class="booking">
-    <h2>{{booking.name}}</h2>
+    <h3 :class="checkedInClass">{{booking.name}}</h3>
     <p>E-mail:{{booking.email}}</p>
-    <p>Checked in status:{{booking.checkedIn}}</p>
+    <button v-on:click="toggleCheckedIn">{{ checkInButtonText }}</button>
     <button type="button" v-on:click="deleteBooking">Cancel Booking</button>
   </div>
 </template>
 
 <script>
 import {eventBus} from '../main.js'
-import BookingService from '../services/BookingService.js'
+// import BookingService from '../services/BookingService.js'
 
 export default {
   name:'booking',
   props:['booking'],
-  methods:{
-    deleteBooking(){
-      BookingService.deleteBooking(this.booking._id)
-      .then(() => eventBus.$emit('booking-deleted',this.booking._id))
+  computed: {
+    checkedInClass() {
+      return this.booking.checkedIn ? 'checked-in' : 'checked-out';
+    },
+    checkInButtonText() {
+      return this.booking.checkedIn ? 'Check out' : 'Check in';
+    }
+  },
+  methods: {
+    toggleCheckedIn: function() {
+      eventBus.$emit('toggle-booking-checked-in', this.booking);
+    },
+    deleteBooking: function() {
+      eventBus.$emit('delete-booking', this.booking._id);
     }
   }
 }
@@ -25,7 +35,7 @@ export default {
 
 <style lang="css" scoped>
 .booking {
-
+  
 	width: 20%;
 	background: rgba(255, 255, 255, 0.5);
 	margin-bottom: 20px;
@@ -44,5 +54,15 @@ button {
 	margin-top: 10px;
 	background: lightblue;
   border-style: outset;
+}
+.checked-in {
+  color: darkgreen;
+}
+
+.checked-out {
+  color: darkred;
+}
+h3 {
+  margin-top: 0;
 }
 </style>

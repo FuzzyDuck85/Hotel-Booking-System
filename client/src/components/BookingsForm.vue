@@ -46,6 +46,8 @@ export default {
 
 <style lang="css" scoped>
 h2 {
+  display: flex;
+  justify-content: center;
 	margin: 10px 0;
 	padding: 0;
 }
