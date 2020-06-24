@@ -6,12 +6,15 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BookingsForm from './components/BookingsForm.vue'
+// import Booking from './components/Booking.vue'
+// import BookingsGrid from './components/BookingsGrid.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    'bookings-form': BookingsForm,
+    'bookings-grid': BookingsGrid
   }
 }
 </script>
