@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>FAWLTY TOWERS</h1>
     <bookings-form />
     <bookings-grid :bookings="bookings" />
   </div>
@@ -46,12 +47,20 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html {
+  height: 100%;
+}
+
+body {
+  background: url('./assets/fawlty_towers_front.jpg') no-repeat;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+
+
+
 }
 </style>

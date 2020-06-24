@@ -45,4 +45,55 @@ export default {
 </script>
 
 <style lang="css" scoped>
+h2 {
+	margin: 10px 0;
+	padding: 0;
+}
+
+form {
+
+
+	width: 25%;
+	margin: 0 auto;
+	background: rgba(153, 255, 204, 0.5);
+	padding: 20px;
+	margin-bottom: 40px;
+  border-radius: 10px;
+  border-style: ridge;
+}
+
+label {
+	min-width: 100px;
+	display: inline-block;
+}
+
+.formWrap {
+	margin-bottom: 10px;
+}
+
+input {
+	color: black;
+  border-radius: 10px;
+	border: none;
+	font-size: 18px;
+	padding: 10px;
+	margin-top: 10px;
+	background: lightblue;
+  border-style: groove;
+}
+
+#save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	color: white;
+  border-radius: 10px;
+	border: none;
+	font-size: 18px;
+	padding: 10px;
+	margin-top: 10px;
+	background: green;
+  border-style: outset;
+
+}
 </style>
